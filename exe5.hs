@@ -56,10 +56,13 @@ faça uso da função de biblioteca concat ::
 [[a]] -> [a]
 ---------------------------------------------}
 
-zip' (x:xs) (y:ys) = [(x, y)]
+q7 = concat [[(x, y) | y <- [3, 4]] | x <- [1, 2]]
 
 {----------------------------------------------
 (8)
 Redefina a função positions usando a função
 find
 ----------------------------------------------}
+positions :: Eq a => a -> [a] -> [Int]
+positions x xs = [i | i <- [0..(length xs - 1)],
+                      (find (==(x,i)) (zip xs [0..])) /= Nothing]
