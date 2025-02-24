@@ -1,4 +1,10 @@
-{-
+{---------------------------------------------
+
+COMPREENSÃO DE LISTAS
+
+João Victor da Silva Cirilo - 20200019609
+
+---------------------------------------------
 (4) 
 De maneira semelhante à função length,
 mostre como a função de biblioteca
@@ -12,13 +18,12 @@ por exemplo
 
 > replicate 3 True
 [True,True,True]
+---------------------------------------------}
 
--}
+replicate' :: Int -> a -> [a]
+replicate' n x = [ x | _ <- [1..n]]
 
--- replicate :: Int -> a -> [a]
--- replicate n x = []
-
-{-
+{---------------------------------------------
 (6)
 Um inteiro positivo é perfeito se for igual à
 soma de todos os seus fatores, excluindo o
@@ -32,12 +37,15 @@ até um determinado limite, por exemplo
 
 > perfects 500
 [6,28,496]
+---------------------------------------------}
 
--}
+fatores :: Int -> [Int]
+fatores n = [x | x <- [1..n-1], mod n x == 0]
 
-perf n = [ x| y <- [1..n], x <- sum y ]
+perfects :: Int -> [Int]
+perfects n = [x | x <- [1..n], sum (fatores x) == x]
 
-{-
+{---------------------------------------------
 (7)
 Mostre como a compreensão da lista
 [(x,y) | x <- [1,2], y <- [3,4]] com dois
@@ -46,10 +54,12 @@ compreensões com geradores únicos. Dica:
 aninhe uma compreensão dentro da outra e
 faça uso da função de biblioteca concat ::
 [[a]] -> [a]
--}
+---------------------------------------------}
 
-{-
+zip' (x:xs) (y:ys) = [(x, y)]
+
+{----------------------------------------------
 (8)
 Redefina a função positions usando a função
 find
--}
+----------------------------------------------}
